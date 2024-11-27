@@ -30,7 +30,7 @@ const CompanyLogo = () => {
         {/* Duplicate content for seamless looping */}
         {MarqueeLogo.concat(MarqueeLogo).map((image, index) => (
           <img
-            className="h-[4rem] object-contain"
+            className="h-[3rem] object-contain"
             src={image}
             alt={`Logo ${index + 1}`}
             key={index}
