@@ -1,7 +1,9 @@
+import Navbar from "./components/navber/navber";
+
 function App() {
   return (
     <>
-      <h1>Project Running</h1>
+      <Navbar />
     </>
   );
 }
