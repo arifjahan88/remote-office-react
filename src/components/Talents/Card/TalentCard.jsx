@@ -1,7 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 
-const TalentCard = ({ title, description, children, steps = false, stepsData }) => {
+const TalentCard = ({
+  title,
+  description,
+  children,
+  steps = false,
+  stepsData,
+  teams = false,
+  teamsRight = false,
+}) => {
   const [progressWidth, setProgressWidth] = useState(0);
   const cardRef = useRef(null);
 
@@ -9,8 +17,6 @@ const TalentCard = ({ title, description, children, steps = false, stepsData }) 
   const { ref, inView } = useInView({
     threshold: [0.7],
   });
-
-  console.log(inView);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,10 +57,16 @@ const TalentCard = ({ title, description, children, steps = false, stepsData }) 
         cardRef.current = el;
       }}
     >
-      <div className="flex items-center gap-24 justify-between pt-8 md:pt-16 lg:pt-32">
-        <div className="text-left flex flex-col w-full md:w-[40%] gap-8">
-          <h2 className="font-bold text-4xl">{title}</h2>
-          <p className="text-[#a9a9a9]">{description}</p>
+      <div
+        className={`flex items-center justify-between pt-8 md:pt-16 lg:pt-32 ${
+          teams ? "flex-col gap-10" : "flex-row gap-24"
+        }`}
+      >
+        <div className={`text-left flex flex-col gap-8 ${teams ? "w-full" : "w-full md:w-[40%]"}`}>
+          <h2 className={`font-bold ${teams ? "text-5xl font-extrabold" : "text-4xl"}`}>{title}</h2>
+          <p className={`text-[#a9a9a9] ${teams && "text-white"} ${teamsRight && "text-black"}`}>
+            {description}
+          </p>
           {steps ? (
             <div>
               <div className="flex items-center justify-between pb-2">
@@ -75,13 +87,24 @@ const TalentCard = ({ title, description, children, steps = false, stepsData }) 
               </div>
             </div>
           ) : (
-            <button className="w-max flex items-center gap-3 font-bold hover:scale-90 duration-300">
+            <button
+              className={`w-max flex items-center gap-3 font-bold hover:scale-90 duration-300 ${
+                teams ? "hidden" : "block"
+              }`}
+            >
               Learn More <img src="/talents/learn.png" className="w-5" alt="learn" />
             </button>
           )}
         </div>
-        <div className="w-full md:w-[40%] relative">{children}</div>
+        <div className={`${teams ? "w-full" : "w-full md:w-[40%] relative"}`}>{children}</div>
       </div>
+      {teams && (
+        <button
+          className={`w-max flex items-center gap-3 text-xl font-extrabold hover:scale-90 duration-300 mt-10`}
+        >
+          Learn More <img src="/talents/learn.png" className="w-5" alt="learn" />
+        </button>
+      )}
     </div>
   );
 };
