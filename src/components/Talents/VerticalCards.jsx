@@ -1,3 +1,4 @@
+import { FadeIn } from "../motion/Variants";
 import TalentCard from "./Card/TalentCard";
 
 const VerticalCards = () => {
@@ -12,11 +13,9 @@ const VerticalCards = () => {
           alt="Talents 1"
           className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
         />
-        <img
-          src="/talents/credit-2.png"
-          alt="Talents 2"
-          className="absolute h-80 top-[-10%] right-0 bottom-0 left-[-30%]"
-        />
+        <FadeIn direction="left" className="absolute h-80 top-[-10%] right-0 bottom-0 left-[-30%]">
+          <img src="/talents/credit-2.png" alt="Talents 2" className="h-full" />
+        </FadeIn>
       </TalentCard>
       <TalentCard
         title="Screening, grading and assessment"
@@ -27,21 +26,25 @@ const VerticalCards = () => {
           alt="Talents 1"
           className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
         />
-        <img
-          src="/talents/medium-2.png"
-          alt="Talents 2"
-          className="absolute h-40 top-auto right-auto bottom-[5%] left-[-20%]"
-        />
-        <img
-          src="/talents/match-3.png"
-          alt="Talents 2"
+
+        <FadeIn
           className="absolute h-40 top-[35%] right-[-20%] bottom-auto left-auto"
-        />
-        <img
-          src="/talents/multiple-image.png"
-          alt="Talents 2"
+          direction="right"
+        >
+          <img src="/talents/match-3.png" alt="Talents 2" className="relative h-full" />
+        </FadeIn>
+        <FadeIn
+          className="absolute h-40 top-auto right-auto bottom-[5%] left-[-20%]"
+          direction="left"
+        >
+          <img src="/talents/medium-2.png" alt="Talents 2" className="relative h-full" />
+        </FadeIn>
+        <FadeIn
           className="absolute h-24 top-[5%] right-auto bottom-auto left-[-30%]"
-        />
+          direction="left"
+        >
+          <img src="/talents/multiple-image.png" alt="Talents 2" className="relative h-full" />
+        </FadeIn>
       </TalentCard>
       <TalentCard
         title="Machine-led interview"
@@ -52,11 +55,12 @@ const VerticalCards = () => {
           alt="Talents 1"
           className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
         />
-        <img
-          src="/talents/score.png"
-          alt="Talents 2"
+        <FadeIn
+          direction="left"
           className="absolute h-40 top-auto right-auto bottom-[5%] left-[-20%]"
-        />
+        >
+          <img src="/talents/score.png" alt="Talents 2" className="relative h-full" />
+        </FadeIn>
       </TalentCard>
       <TalentCard
         title="Technical challenge"
@@ -67,11 +71,12 @@ const VerticalCards = () => {
           alt="Talents 1"
           className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
         />
-        <img
-          src="/talents/challenge-2.png"
-          alt="Talents 2"
+        <FadeIn
           className="absolute h-[13rem] top-[10%] right-[-20%] bottom-auto left-auto"
-        />
+          direction="right"
+        >
+          <img src="/talents/challenge-2.png" alt="Talents 2" className="relative h-full" />
+        </FadeIn>
       </TalentCard>
       <TalentCard
         title="Client review"
@@ -82,11 +87,12 @@ const VerticalCards = () => {
           alt="Talents 1"
           className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
         />
-        <img
-          src="/talents/review-2.png"
-          alt="Talents 2"
+        <FadeIn
           className="absolute h-[19rem] top-[15%] right-0 bottom-0 left-[-30%]"
-        />
+          direction="left"
+        >
+          <img src="/talents/review-2.png" alt="Talents 2" className="relative h-full" />
+        </FadeIn>
       </TalentCard>
     </>
   );

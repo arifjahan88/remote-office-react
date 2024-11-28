@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import { FadeIn } from "../../motion/Variants";
 
 const TalentCard = ({
   title,
@@ -62,15 +63,18 @@ const TalentCard = ({
           teams ? "flex-col gap-10" : "flex-row gap-24"
         }`}
       >
-        <div
+        <FadeIn
+          direction="up"
           className={`text-left flex flex-col gap-8 ${teams ? "max-w-full" : "w-full md:w-[40%]"}`}
         >
-          <h2 className={`font-bold ${teams ? "text-5xl font-extrabold" : "text-4xl"}`}>{title}</h2>
+          <h2 className={`font-bold ${teams ? "text-5xl font-extrabold mb-5" : "text-4xl"}`}>
+            {title}
+          </h2>
           <p className={`text-[#a9a9a9] ${teams && "text-white"} ${teamsRight && "text-black"}`}>
             {description}
           </p>
           {steps ? (
-            <div>
+            <div className="mt-8">
               <div className="flex items-center justify-between pb-2">
                 {/* Step Number */}
                 <span className={`text-3xl font-bold text-blue-500 `}>{stepsData[0] || ""}</span>
@@ -97,7 +101,7 @@ const TalentCard = ({
               Learn More <img src="/talents/learn.png" className="w-5" alt="learn" />
             </button>
           )}
-        </div>
+        </FadeIn>
         <div className={`${teams ? "w-full" : "w-full md:w-[40%] relative"}`}>{children}</div>
       </div>
       {teams && (

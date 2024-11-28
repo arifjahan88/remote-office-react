@@ -1,4 +1,5 @@
 import HorizontalPageEffect from "../motion/HorizontalPageEffect";
+import { FadeIn, ZoomIn } from "../motion/Variants";
 import TalentCard from "./Card/TalentCard";
 
 const HorizontalCards = () => {
@@ -12,16 +13,20 @@ const HorizontalCards = () => {
             steps={true}
             stepsData={["01", "02"]}
           >
-            <img
-              src="/steps/step-11.png"
-              alt="Step 1"
-              className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
-            />
-            <img
-              src="/steps/step-12.png"
-              alt="Talents 2"
+            <ZoomIn scale={0.4} delay={0}>
+              <img
+                src="/steps/step-11.png"
+                alt="Step 1"
+                className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
+              />
+            </ZoomIn>
+            <FadeIn
+              direction="left"
+              delay={0.2}
               className="absolute h-44 top-[25%] right-auto bottom-auto left-[-40%]"
-            />
+            >
+              <img src="/steps/step-12.png" alt="Talents 2" className="relative h-full" />
+            </FadeIn>
           </TalentCard>
         </div>
       </section>
@@ -33,16 +38,19 @@ const HorizontalCards = () => {
             steps={true}
             stepsData={["02", "03"]}
           >
-            <img
-              src="/steps/step-21.png"
-              alt="steps 1"
-              className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
-            />
-            <img
-              src="/steps/step-22.png"
-              alt="steps 2"
+            <ZoomIn
+              scale={0.4}
+              delay={0.1}
+              className="rounded-xl max-w-[448px] max-h-[495px] object-cover overflow-hidden"
+            >
+              <img src="/steps/step-21.png" alt="steps 1" className="relative h-full" />
+            </ZoomIn>
+            <FadeIn
               className="absolute h-40 top-[5%] right-auto bottom-auto left-[-40%]"
-            />
+              direction="left"
+            >
+              <img src="/steps/step-22.png" alt="steps 2" className="relative h-full" />
+            </FadeIn>
           </TalentCard>
         </div>
       </section>
@@ -54,16 +62,18 @@ const HorizontalCards = () => {
             steps={true}
             stepsData={["03", "04"]}
           >
-            <img
-              src="/steps/step-31.png"
-              alt="steps 1"
-              className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
-            />
-            <img
-              src="/steps/step-32.png"
-              alt="steps 2"
+            <ZoomIn
+              scale={0.4}
+              className="rounded-xl max-w-[448px] max-h-[495px] object-cover overflow-hidden"
+            >
+              <img src="/steps/step-31.png" alt="steps 1" className="relative h-full" />
+            </ZoomIn>
+            <FadeIn
               className="absolute h-60 top-[25%] right-auto bottom-auto left-[-40%]"
-            />
+              direction="left"
+            >
+              <img src="/steps/step-32.png" alt="steps 2" className="relative h-full" />
+            </FadeIn>
           </TalentCard>
         </div>
       </section>
@@ -75,16 +85,18 @@ const HorizontalCards = () => {
             steps={true}
             stepsData={["04"]}
           >
-            <img
-              src="/steps/step-41.png"
-              alt="steps 1"
-              className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
-            />
-            <img
-              src="/steps/step-42.png"
-              alt="steps 2"
+            <ZoomIn
+              scale={0.4}
+              className="rounded-xl max-w-[448px] max-h-[495px] object-cover overflow-hidden"
+            >
+              <img src="/steps/step-41.png" alt="steps 1" className="relative h-full" />
+            </ZoomIn>
+            <FadeIn
               className="absolute h-56 top-[10%] right-[-25%] bottom-auto left-auto"
-            />
+              direction="right"
+            >
+              <img src="/steps/step-42.png" alt="steps 2" className="relative h-full" />
+            </FadeIn>
           </TalentCard>
         </div>
       </section>
