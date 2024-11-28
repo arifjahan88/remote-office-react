@@ -4,6 +4,7 @@ import Navbar from "./components/navber/navber";
 import QuickLook from "./components/QuickLook/QuickLook";
 import Talents from "./components/Talents/Talents";
 import Teams from "./components/Teams/Teams";
+import Testimonial from "./components/Testimonial/Testimonial";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Talents />
       <Teams />
       <QuickLook />
+      <Testimonial />
     </>
   );
 }
