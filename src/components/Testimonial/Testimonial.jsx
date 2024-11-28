@@ -43,8 +43,8 @@ const Testimonial = () => {
   const testimonial = testimonials[currentTestimonial];
 
   return (
-    <section className="grid grid-cols-3 container text-primary my-[6rem] relative">
-      <div className="text-5xl font-extrabold">Clients say</div>
+    <section className="grid grid-cols-1 md:grid-cols-3 container text-primary md:my-[6rem] relative">
+      <div className="text-5xl font-extrabold mb-10 md:mb-0">Clients say</div>
 
       <div className="col-span-2 flex gap-5 w-full overflow-hidden">
         <AnimatePresence mode="wait">
@@ -60,7 +60,7 @@ const Testimonial = () => {
               <img src="/quate.png" alt="" className="max-w-36" />
             </div>
             <div className="space-y-14">
-              <h4 className="text-2xl font-[500]">{testimonial.quote}</h4>
+              <h4 className="text-xl md:text-2xl font-[500]">{testimonial.quote}</h4>
               <div className="flex items-center gap-5">
                 <img src={testimonial.image} alt={testimonial.name} />
                 <div>

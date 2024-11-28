@@ -17,7 +17,7 @@ export const AllCards = [
               <img
                 src="/steps/step-11.png"
                 alt="Step 1"
-                className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
+                className="rounded-xl lg:max-w-[448px] max-h-[495px] object-cover"
               />
             </ZoomIn>
             <FadeIn

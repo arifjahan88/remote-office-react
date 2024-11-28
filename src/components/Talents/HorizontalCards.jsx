@@ -44,7 +44,7 @@ const HorizontalCards = () => {
           />
         </div>
       </div>
-      <div className="w-full max-w-full overflow-hidden lg:hidden">
+      <div className="w-full overflow-hidden lg:hidden">
         <AnimatePresence mode="popLayout">
           <motion.div
             key={Cards.id}

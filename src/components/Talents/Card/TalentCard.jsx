@@ -69,7 +69,7 @@ const TalentCard = ({
       }}
     >
       <div
-        className={`flex flex-col lg:flex-row items-center justify-between pt-8 md:pt-16 lg:pt-32 ${
+        className={`flex flex-col items-center justify-between pt-8 md:pt-16 lg:pt-32 ${
           teams ? "flex-col gap-10" : "flex-row gap-24"
         }`}
       >

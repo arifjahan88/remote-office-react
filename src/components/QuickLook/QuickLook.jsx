@@ -16,7 +16,7 @@ const QuickLook = () => {
           <img
             src="/steps/step-41.png"
             alt="steps 1"
-            className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
+            className="rounded-xl lg:max-w-[448px] max-h-[495px] object-cover"
           />
         </div>
       </div>

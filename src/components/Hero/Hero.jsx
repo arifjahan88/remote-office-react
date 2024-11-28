@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="container pt-24 lg:pt-28 grid grid-cols-1 lg:grid-cols-2 gap-24 lg:min-h-screen place-content-center text-center lg:text-left">
       <div>
-        <h1 className="text-[4rem] font-extrabold leading-tight text-primary">
+        <h1 className="text-[2.5rem] md:text-[4rem] font-extrabold leading-tight text-primary">
           Build and <br /> Manage Global <br />
           <TypeAnimation
             sequence={["Compliances", 2000, "HR Operations", 2000, "Remote Teams", 2000]}
@@ -42,7 +42,7 @@ const Hero = () => {
         <FadeIn
           direction="up"
           delay={1}
-          className="absolute h-[25rem] lg:h-[250px] top-auto lg:top-[50%] right-0 lg:right-auto bottom-[-5%] lg:bottom-0 left-auto lg:left-[40%]"
+          className="absolute h-[12rem] md:h-[25rem] lg:h-[250px] top-auto lg:top-[50%] right-0 lg:right-auto bottom-[-5%] lg:bottom-0 left-auto lg:left-[40%]"
         >
           <TiltEffect className="relative h-full">
             <img className="h-full" src="/asha-sharma.png" alt="asha" />
@@ -51,7 +51,7 @@ const Hero = () => {
 
         <FadeIn
           direction="up"
-          className="absolute h-[25rem] lg:h-[250px] top-[-6%] lg:top-[20%] right-auto bottom-auto lg:bottom-0 left-0 lg:left-[5%] z-[-1] lg:z-[1]"
+          className="absolute h-[12rem] md:h-[25rem] lg:h-[250px] top-[-6%] lg:top-[20%] right-auto bottom-auto lg:bottom-0 left-0 lg:left-[5%]"
         >
           <TiltEffect className="relative h-full">
             <img className="h-full" src="/mighel.png" alt="mighel" />
