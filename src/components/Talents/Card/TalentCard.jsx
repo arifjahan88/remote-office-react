@@ -62,7 +62,9 @@ const TalentCard = ({
           teams ? "flex-col gap-10" : "flex-row gap-24"
         }`}
       >
-        <div className={`text-left flex flex-col gap-8 ${teams ? "w-full" : "w-full md:w-[40%]"}`}>
+        <div
+          className={`text-left flex flex-col gap-8 ${teams ? "max-w-full" : "w-full md:w-[40%]"}`}
+        >
           <h2 className={`font-bold ${teams ? "text-5xl font-extrabold" : "text-4xl"}`}>{title}</h2>
           <p className={`text-[#a9a9a9] ${teams && "text-white"} ${teamsRight && "text-black"}`}>
             {description}
