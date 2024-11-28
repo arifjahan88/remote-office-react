@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { FadeIn } from "../../motion/Variants";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const TalentCard = ({
   title,
@@ -13,6 +14,15 @@ const TalentCard = ({
 }) => {
   const [progressWidth, setProgressWidth] = useState(0);
   const cardRef = useRef(null);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  console.log(Math.round(scaleX?.current * 100));
 
   // Use Intersection Observer to detect when component is in view
   const { ref, inView } = useInView({
@@ -87,7 +97,7 @@ const TalentCard = ({
                   <div className="w-full h-[3px] bg-gray-300"></div>
                   <div
                     className="absolute top-0 left-0 h-[3px] bg-blue-500 transition-all duration-300"
-                    style={{ width: `${progressWidth}%` }}
+                    style={{ width: `${Math.round(scaleX?.current * 100)}%` }}
                   ></div>
                 </div>
               </div>
