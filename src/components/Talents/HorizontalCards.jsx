@@ -1,106 +1,62 @@
+import { useState } from "react";
 import HorizontalPageEffect from "../motion/HorizontalPageEffect";
-import { FadeIn, ZoomIn } from "../motion/Variants";
-import TalentCard from "./Card/TalentCard";
+import { AllCards } from "./data/AllCards";
+import { motion, AnimatePresence } from "framer-motion";
 
 const HorizontalCards = () => {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const handleNext = () => {
+    setCurrentTestimonial((prev) => (prev === AllCards.length - 1 ? 0 : prev + 1));
+  };
+
+  const handlePrev = () => {
+    setCurrentTestimonial((prev) => (prev === 0 ? AllCards.length - 1 : prev - 1));
+  };
+
+  const Cards = AllCards[currentTestimonial];
   return (
-    <HorizontalPageEffect>
-      <section className="bg-primary text-white min-h-screen w-screen">
-        <div className="container min-h-screen grid place-content-center">
-          <TalentCard
-            title="Onboarding"
-            description="We help you onboard the candidates by doing background checks, extending the offer, and installing our proprietary service culture pathway. We ensure a smooth and hassle-free transition for you and the candidates."
-            steps={true}
-            stepsData={["01", "02"]}
-          >
-            <ZoomIn scale={0.4} delay={0}>
-              <img
-                src="/steps/step-11.png"
-                alt="Step 1"
-                className="rounded-xl max-w-[448px] max-h-[495px] object-cover"
-              />
-            </ZoomIn>
-            <FadeIn
-              direction="left"
-              delay={0.2}
-              className="absolute h-44 top-[25%] right-auto bottom-auto left-[-40%]"
-            >
-              <img src="/steps/step-12.png" alt="Talents 2" className="relative h-full" />
-            </FadeIn>
-          </TalentCard>
+    <>
+      <HorizontalPageEffect>
+        {AllCards.map((card) => {
+          return card.component;
+        })}
+      </HorizontalPageEffect>
+
+      {/* For Tab and Mobile View */}
+      <div className="relative block lg:hidden -translate-x-5">
+        <div>
+          <motion.img
+            src="/left-arrow.png"
+            alt="Previous Testimonial"
+            className="absolute right-12 -top-10 w-10 cursor-pointer bg-white p-2 rounded-lg"
+            onClick={handlePrev}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          />
+          <motion.img
+            src="/right-arrow.png"
+            alt="Next Testimonial"
+            className="absolute right-0 -top-10 w-10 cursor-pointer bg-white p-2 rounded-lg"
+            onClick={handleNext}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          />
         </div>
-      </section>
-      <section className="bg-white text-primary min-h-screen w-screen">
-        <div className="container min-h-screen grid place-content-center">
-          <TalentCard
-            title="Compliance"
-            description="We handle the compliance issues for you and the candidates. We make sure contracts are native and efficiently handled to safeguard integrity, confidentiality, continuity, and effectivity."
-            steps={true}
-            stepsData={["02", "03"]}
+      </div>
+      <div className="w-full max-w-full overflow-hidden lg:hidden">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={Cards.id}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.1 }}
           >
-            <ZoomIn
-              scale={0.4}
-              delay={0.1}
-              className="rounded-xl max-w-[448px] max-h-[495px] object-cover overflow-hidden"
-            >
-              <img src="/steps/step-21.png" alt="steps 1" className="relative h-full" />
-            </ZoomIn>
-            <FadeIn
-              className="absolute h-40 top-[5%] right-auto bottom-auto left-[-40%]"
-              direction="left"
-            >
-              <img src="/steps/step-22.png" alt="steps 2" className="relative h-full" />
-            </FadeIn>
-          </TalentCard>
-        </div>
-      </section>
-      <section className="bg-[#265FD1] text-white min-h-screen w-screen">
-        <div className="container min-h-screen grid place-content-center">
-          <TalentCard
-            title="Team Management"
-            description="We help you better manage your team with strategic consultation, sprint management, training and development, and reporting standard management. We suggest the best practices and tools to optimize your remote team’s performance and productivity."
-            steps={true}
-            stepsData={["03", "04"]}
-          >
-            <ZoomIn
-              scale={0.4}
-              className="rounded-xl max-w-[448px] max-h-[495px] object-cover overflow-hidden"
-            >
-              <img src="/steps/step-31.png" alt="steps 1" className="relative h-full" />
-            </ZoomIn>
-            <FadeIn
-              className="absolute h-60 top-[25%] right-auto bottom-auto left-[-40%]"
-              direction="left"
-            >
-              <img src="/steps/step-32.png" alt="steps 2" className="relative h-full" />
-            </FadeIn>
-          </TalentCard>
-        </div>
-      </section>
-      <section className="bg-primary text-white min-h-screen w-screen">
-        <div className="container min-h-screen grid place-content-center">
-          <TalentCard
-            title="HR Management"
-            description="We take care of the entire HR Management for your remote team. We handle the contract fees, attendance, leaves, holiday calendars, performance evaluation, and appraisals. We ensure that your team is happy, motivated, and productive."
-            steps={true}
-            stepsData={["04"]}
-          >
-            <ZoomIn
-              scale={0.4}
-              className="rounded-xl max-w-[448px] max-h-[495px] object-cover overflow-hidden"
-            >
-              <img src="/steps/step-41.png" alt="steps 1" className="relative h-full" />
-            </ZoomIn>
-            <FadeIn
-              className="absolute h-56 top-[10%] right-[-25%] bottom-auto left-auto"
-              direction="right"
-            >
-              <img src="/steps/step-42.png" alt="steps 2" className="relative h-full" />
-            </FadeIn>
-          </TalentCard>
-        </div>
-      </section>
-    </HorizontalPageEffect>
+            {Cards.component}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </>
   );
 };
 

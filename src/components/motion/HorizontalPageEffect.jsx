@@ -9,9 +9,9 @@ const HorizontalPageEffect = ({ children }) => {
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-primary">
-      <div className="sticky inset-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex">
+    <section ref={targetRef} className="relative lg:h-[300vh] bg-primary">
+      <div className="sticky inset-0 hidden lg:flex lg:h-screen items-center overflow-hidden">
+        <motion.div style={{ x }} className="hidden lg:flex">
           {children}
         </motion.div>
       </div>

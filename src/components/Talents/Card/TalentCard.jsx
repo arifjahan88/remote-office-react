@@ -69,13 +69,13 @@ const TalentCard = ({
       }}
     >
       <div
-        className={`flex items-center justify-between pt-8 md:pt-16 lg:pt-32 ${
+        className={`flex flex-col lg:flex-row items-center justify-between pt-8 md:pt-16 lg:pt-32 ${
           teams ? "flex-col gap-10" : "flex-row gap-24"
         }`}
       >
         <FadeIn
           direction="up"
-          className={`text-left flex flex-col gap-8 ${teams ? "max-w-full" : "w-full md:w-[40%]"}`}
+          className={`text-left flex flex-col gap-8 ${teams ? "max-w-full" : "w-full lg:w-[40%]"}`}
         >
           <h2 className={`font-bold ${teams ? "text-5xl font-extrabold mb-5" : "text-4xl"}`}>
             {title}

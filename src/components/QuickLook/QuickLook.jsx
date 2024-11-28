@@ -1,9 +1,9 @@
 const QuickLook = () => {
   return (
     <section className="bg-primary text-white">
-      <div className="container grid grid-cols-2 pt-[6rem] pb-[6rem] items-center justify-between gap-5">
+      <div className="container grid grid-cols-1 lg:grid-cols-2 pt-[6rem] pb-[6rem] items-center justify-between gap-5 text-center lg:text-left">
         <div className="space-y-5">
-          <img src="/look.png" alt="" />
+          <img src="/look.png" alt="" className="w-36 lg:max-w-none mx-auto lg:mx-0" />
           <h1 className="text-[3rem] font-extrabold leading-tight">
             Take a <br /> quick look <br /> at our platform
           </h1>

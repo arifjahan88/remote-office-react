@@ -2,8 +2,8 @@ import TalentCard from "../Talents/Card/TalentCard";
 
 const Teams = () => {
   return (
-    <section className="grid grid-cols-2">
-      <div className="bg-[#265FD1] text-white pl-[10rem] pr-16 pb-8 md:pb-16 lg:pb-32">
+    <section className="grid grid-cols-1 md:grid-cols-2">
+      <div className="bg-[#265FD1] text-white pl-2 lg:pl-[10rem] pr-2 lg:pr-16 pb-8 md:pb-16 lg:pb-32">
         <TalentCard
           teams={true}
           title="Supercharge your team"
@@ -12,7 +12,7 @@ const Teams = () => {
           <img src="/team-1.png" alt="Talents 1" className="rounded-xl object-cover" />
         </TalentCard>
       </div>
-      <div className="bg-secondary text-black pr-[10rem] pl-16">
+      <div className="bg-secondary text-black pr-2 lg:pr-[10rem] pl-2 lg:pl-16">
         <TalentCard
           teams={true}
           teamsRight={true}

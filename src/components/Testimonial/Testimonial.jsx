@@ -46,7 +46,7 @@ const Testimonial = () => {
     <section className="grid grid-cols-3 container text-primary my-[6rem] relative">
       <div className="text-5xl font-extrabold">Clients say</div>
 
-      <div className="col-span-2 flex gap-5">
+      <div className="col-span-2 flex gap-5 w-full overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={testimonial.id}
@@ -54,7 +54,7 @@ const Testimonial = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="flex gap-8 h-full md:h-[500px] overflow-hidden"
+            className="flex gap-8 h-full lg:h-[500px] overflow-hidden"
           >
             <div>
               <img src="/quate.png" alt="" className="max-w-36" />
@@ -76,7 +76,7 @@ const Testimonial = () => {
         <motion.img
           src="/left-arrow.png"
           alt="Previous Testimonial"
-          className="absolute left-0 bottom-0 cursor-pointer"
+          className="absolute left-5 bottom-0 cursor-pointer"
           onClick={handlePrev}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -84,7 +84,7 @@ const Testimonial = () => {
         <motion.img
           src="/right-arrow.png"
           alt="Next Testimonial"
-          className="absolute right-0 bottom-0 cursor-pointer"
+          className="absolute right-5 bottom-0 cursor-pointer"
           onClick={handleNext}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
