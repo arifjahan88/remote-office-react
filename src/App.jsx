@@ -1,4 +1,5 @@
 import CompanyLogo from "./components/CompanyLogo/CompanyLogo";
+import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/navber/navber";
 import QuickLook from "./components/QuickLook/QuickLook";
@@ -16,6 +17,7 @@ function App() {
       <Teams />
       <QuickLook />
       <Testimonial />
+      <Footer />
     </>
   );
 }
