@@ -1,7 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import { useInView } from "react-intersection-observer";
 import { FadeIn } from "../../motion/Variants";
-import { motion, useScroll, useSpring } from "framer-motion";
 
 const TalentCard = ({
   title,
@@ -11,63 +8,10 @@ const TalentCard = ({
   stepsData,
   teams = false,
   teamsRight = false,
+  progressWidth = 0,
 }) => {
-  const [progressWidth, setProgressWidth] = useState(0);
-  const cardRef = useRef(null);
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  console.log(Math.round(scaleX?.current * 100));
-
-  // Use Intersection Observer to detect when component is in view
-  const { ref, inView } = useInView({
-    threshold: [0.7],
-  });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!cardRef.current || !inView) {
-        setProgressWidth(0);
-        return;
-      }
-
-      const cardElement = cardRef.current;
-      const rect = cardElement.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calculate how much of the card has passed the top of the viewport
-      const scrollProgress = Math.max(
-        0,
-        Math.min(100, ((windowHeight - rect.top) / rect.height) * 100)
-      );
-
-      setProgressWidth(scrollProgress);
-    };
-
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Initial calculation
-    handleScroll();
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [inView]);
-
   return (
-    <div
-      ref={(el) => {
-        ref(el);
-        cardRef.current = el;
-      }}
-    >
+    <div>
       <div
         className={`flex flex-col items-center justify-between pt-8 md:pt-16 lg:pt-32 ${
           teams ? "flex-col gap-10" : "lg:flex-row gap-24"
@@ -85,19 +29,42 @@ const TalentCard = ({
           </p>
           {steps ? (
             <div className="mt-8">
-              <div className="flex items-center justify-between pb-2">
-                {/* Step Number */}
-                <span className={`text-3xl font-bold text-blue-500 `}>{stepsData[0] || ""}</span>
-                {/* Step Number */}
-                <span className={`text-3xl font-bold text-gray-500 `}>{stepsData[1] || ""}</span>
+              {/* Step Number */}
+              <div className={`flex items-center justify-between pb-2`}>
+                <span
+                  className={`text-3xl font-bold ${
+                    stepsData[0] === "03" ? "text-white" : "text-blue-500"
+                  } `}
+                >
+                  {stepsData[0] || ""}
+                </span>
+                <span
+                  className={`text-3xl font-bold ${
+                    stepsData[1] === "04" && progressWidth < 100
+                      ? "text-gray-500"
+                      : stepsData[1] === "04" && progressWidth === 100
+                      ? "text-white"
+                      : progressWidth === 100
+                      ? "text-blue-500"
+                      : "text-gray-300"
+                  }`}
+                >
+                  {stepsData[1] || ""}
+                </span>
               </div>
               <div className="flex items-center w-full">
                 {/* Progress Bar */}
-                <div className="flex-1 relative">
-                  <div className="w-full h-[3px] bg-gray-300"></div>
+                <div
+                  className={`flex-1 relative ${
+                    stepsData[0] === "03"
+                      ? "[&>div:first-child]:bg-gray-500 [&>div:last-child]:bg-white"
+                      : "[&>div:first-child]:bg-gray-300 [&>div:last-child]:bg-blue-500"
+                  }`}
+                >
+                  <div className="w-full h-[3px]"></div>
                   <div
-                    className="absolute top-0 left-0 h-[3px] bg-blue-500 transition-all duration-300"
-                    style={{ width: `${Math.round(scaleX?.current * 100)}%` }}
+                    className={`absolute top-0 left-0 h-[4px] transition-all duration-300 `}
+                    style={{ width: `${progressWidth}%` }}
                   ></div>
                 </div>
               </div>

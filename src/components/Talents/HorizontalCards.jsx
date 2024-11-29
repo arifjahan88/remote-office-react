@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import HorizontalPageEffect from "../motion/HorizontalPageEffect";
-import { AllCards } from "./data/AllCards";
 import { motion, AnimatePresence } from "framer-motion";
+import AllHorizontalCards from "./data/AllHorizontalCards";
 
 const HorizontalCards = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const ref = useRef(null);
+  const AllCards = AllHorizontalCards(ref);
 
   const handleNext = () => {
     setCurrentTestimonial((prev) => (prev === AllCards.length - 1 ? 0 : prev + 1));
@@ -19,7 +21,11 @@ const HorizontalCards = () => {
     <>
       <HorizontalPageEffect>
         {AllCards.map((card) => {
-          return card.component;
+          return (
+            <div ref={ref} key={card.id}>
+              {card.component}
+            </div>
+          );
         })}
       </HorizontalPageEffect>
 
