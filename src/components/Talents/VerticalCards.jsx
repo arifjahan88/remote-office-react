@@ -1,5 +1,5 @@
 import { FadeIn } from "../motion/Variants";
-import TalentCard from "./Card/TalentCard";
+import TalentCard from "../common/Card/TalentCard";
 
 const VerticalCards = () => {
   return (

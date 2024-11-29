@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import HorizontalPageEffect from "../motion/HorizontalPageEffect";
 import { motion, AnimatePresence } from "framer-motion";
-import AllHorizontalCards from "./data/AllHorizontalCards";
+import AllHorizontalCards from "./AllHorizontalCards";
 
 const HorizontalCards = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);

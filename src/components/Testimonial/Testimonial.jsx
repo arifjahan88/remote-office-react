@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Sample testimonial data (you can expand or replace this)
 const testimonials = [
   {
     id: 1,

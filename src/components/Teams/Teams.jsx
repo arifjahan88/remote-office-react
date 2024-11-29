@@ -1,4 +1,4 @@
-import TalentCard from "../Talents/Card/TalentCard";
+import TalentCard from "../common/Card/TalentCard";
 
 const Teams = () => {
   return (

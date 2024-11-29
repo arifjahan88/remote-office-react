@@ -6,6 +6,7 @@ import { FadeIn } from "../motion/Variants";
 const Hero = () => {
   return (
     <section className="container pt-24 lg:pt-28 grid grid-cols-1 lg:grid-cols-2 gap-24 lg:min-h-screen place-content-center text-center lg:text-left">
+      {/* Left Side Content */}
       <div>
         <h1 className="text-[2.5rem] md:text-[4rem] font-extrabold leading-tight text-primary">
           Build and <br /> Manage Global <br />
@@ -89,6 +90,8 @@ const Hero = () => {
           />
         </FadeIn>
       </div>
+
+      {/* For Mobile and Tab Devices */}
       <div className="grid grid-cols-2 gap-5 lg:hidden mb-10">
         {["Talent Acquisition", "Vrtual Hr", "Virtual Team Management", "Compliance"].map((i) => {
           return (

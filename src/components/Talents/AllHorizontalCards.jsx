@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { FadeIn, ZoomIn } from "../../motion/Variants";
-import TalentCard from "../Card/TalentCard";
+import TalentCard from "../common/Card/TalentCard";
+import { FadeIn, ZoomIn } from "../motion/Variants";
 
 const AllHorizontalCards = () => {
   const [progress1, setProgress1] = useState(0);
