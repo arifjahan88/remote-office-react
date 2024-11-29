@@ -1,8 +1,53 @@
-# React + Vite
+# RemoteOffice.io Homepage Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This project is a pixel-perfect recreation of the RemoteOffice.io homepage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+
+- **Frontend Framework**: React
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: React Icons
+
+## Features
+
+- Fully responsive design
+- Pixel-perfect recreation of RemoteOffice.io homepage
+- Smooth animations and interactions
+- Responsive across multiple device sizes (mobile, tablet, desktop)
+
+## Prerequisites
+
+- Node.js (v18 or later)
+- npm or Yarn
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/arifjahan88/remote-office-react
+cd remote-office-react
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+## Deployment
+
+Live Demo: [Click Here](https://remote-office-react.vercel.app/)
