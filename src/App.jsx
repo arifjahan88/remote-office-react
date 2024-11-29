@@ -6,6 +6,7 @@ import QuickLook from "./components/QuickLook/QuickLook";
 import Talents from "./components/Talents/Talents";
 import Teams from "./components/Teams/Teams";
 import Testimonial from "./components/Testimonial/Testimonial";
+import WhyRemote from "./components/WhyRemote/WhyRemote";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Talents />
       <Teams />
       <QuickLook />
+      <WhyRemote />
       <Testimonial />
       <Footer />
     </>
