@@ -22,11 +22,11 @@ const Footer = () => {
   ];
   return (
     <footer>
-      <div className="bg-primary text-white py-16">
+      <div className="bg-primary text-white py-5 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 container">
           <div className="space-y-8">
-            <img src="/logowhite.png" alt="" className="max-w-56" />
-            <div className="flex items-center gap-5">
+            <img src="/logowhite.png" alt="" className="max-w-56 mx-auto md:mx-0" />
+            <div className="flex items-center gap-5 justify-center md:justify-start">
               <img src="/linkdin.png" alt="" />
               <img src="/fb.png" alt="" />
               <img src="/youtube.png" alt="" />
@@ -42,7 +42,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="space-y-16 tracking-tight">
-            <p>
+            <p className="text-center md:text-left">
               Remote Office is an end-to-end remoteOps platform that helps you build and manage
               global remote teams. We provide you with access to top-vetted talents, handle
               compliance and HR issues, and offer strategic consultation and support to optimise

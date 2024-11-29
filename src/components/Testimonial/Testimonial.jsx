@@ -42,8 +42,10 @@ const Testimonial = () => {
   const testimonial = testimonials[currentTestimonial];
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 container text-primary md:my-[6rem] relative">
-      <div className="text-5xl font-extrabold mb-10 md:mb-0">Clients say</div>
+    <section className="grid grid-cols-1 md:grid-cols-3 container text-primary my-5 md:my-[6rem] relative">
+      <div className="text-2xl text-center md:text-left md:text-5xl font-extrabold mb-10 md:mb-0">
+        Clients say
+      </div>
 
       <div className="col-span-2 flex gap-5 w-full overflow-hidden">
         <AnimatePresence mode="wait">
@@ -75,7 +77,7 @@ const Testimonial = () => {
         <motion.img
           src="/left-arrow.png"
           alt="Previous Testimonial"
-          className="absolute left-5 bottom-0 cursor-pointer"
+          className="absolute left-5 bottom-3 cursor-pointer w-5 md:w-10"
           onClick={handlePrev}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -83,7 +85,7 @@ const Testimonial = () => {
         <motion.img
           src="/right-arrow.png"
           alt="Next Testimonial"
-          className="absolute right-5 bottom-0 cursor-pointer"
+          className="absolute right-5 bottom-3 cursor-pointer w-5 md:w-10"
           onClick={handleNext}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

@@ -12,7 +12,7 @@ const MobileNav = ({ isOpen, toggleDropdown, openDropdowns }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden bg-blue-400 rounded-lg mt-2"
+            className="lg:hidden bg-blue-600 rounded-lg mt-2"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item, index) => (
